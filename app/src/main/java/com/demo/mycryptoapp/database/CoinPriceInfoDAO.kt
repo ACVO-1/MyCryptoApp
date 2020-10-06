@@ -11,11 +11,11 @@ import com.demo.mycryptoapp.pojo.CoinPriceInfo
 interface CoinPriceInfoDAO {
 
     @Query("SELECT * FROM full_price_list ORDER BY price DESC")
-    fun getPriceList():LiveData<List<CoinPriceInfo>>
+    fun getPriceList(): LiveData<List<CoinPriceInfo>>
 
     @Query("SELECT * FROM full_price_list WHERE fromSymbol == :fSym Limit 1")
-    fun getPriceInfoAboutCoin(fSym: String):LiveData<CoinPriceInfo>
+    fun getPriceInfoAboutCoin(fSym: String): LiveData<CoinPriceInfo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPriceList(priceList :List<CoinPriceInfo>)
+    fun insertPriceList(priceList: List<CoinPriceInfo>)
 }
